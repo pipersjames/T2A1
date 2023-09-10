@@ -174,7 +174,7 @@ GROUP BY u.UserName;
 
 I've conducted research into the Trello web application to review for this question. It is basically a visual tool used to manage projects and workflow.
 
-  a. List and describe the software used by the app.
+###### a. List and describe the software used by the app.
 
 * HTML and CSS - Render the visual interface used for the application.
 * JavaScript - A programming language known to be used in web development to add interactivity to webpages. It is a versatile and high-level language. 
@@ -188,25 +188,23 @@ I've conducted research into the Trello web application to review for this quest
 * Git version control - Hosting of software versions are available on Github. Used to provide record of changes and public support to the project for future development.
 
 
-  b. Describe the hardware used to host the app.
+###### b. Describe the hardware used to host the app.
 
 Trello like most web applications, relies on cloud-based infrastructure to host the application. This provides a level of flexibility when scaling the application that physical storage would not allow for at such a rapid pace. Virtual Servers would be needed to host the run-time environment. Cloud storage would be required for the REDIS caching and MongoDB database setup. The application would need to access a networking infrastructure with routers, switches and firewalls that are designed to manage this load. A separate storage would probably be allocated to keeping logs and logging tools.
 
 It may also be possible that the team keeps a physical storage somewhere in case disaster strikes they have a recovery plan in place.
 
-
-
-  c. Describe the interaction of technologies within the app
+###### c. Describe the interaction of technologies within the app
 
 The front-end viewport is rendered using a combination of HTML and CSS, HTML to define the structure and CSS to define style. JavaScript gets mixed into this and provides functionality and interactivity. Backbone.Js helps to structure and organise JavaScript client side and complements it by providing a framework for managing relationships. The JavaScript with the help of backbone.JS can use the templates made through Mustache to render out the HTML dynamically based on server data and user interactions. Note that most of this JavaScript code would be written using coffee script and then compiled into JavaScript to make the development cycle quicker. 
 
 In the backend of the operation, we see Node.JS interacting taking in any of the requests from the front end and processing it to the relevant data model. It interacts with the REDIS caching system in favour of the MongoDB for quicker load times. Node.js will also interact with the MongoDB to perform CRUD operations to the primary data storage. During the development cycle we'll see any changes made throughout this ecosystem of control being tracked via git version control. 
 
-  d. Describe the way data is structured within the app
+###### d. Describe the way data is structured within the app
 
 Data in MongoDB is organised into collections of documents that are stored as Json like objects. Each collection or entity receives a unique identifier that allows the MQL (Mongo Query Language) to access them. For example, in the case of the Trello application we could include collections the boards, lists or cards. Multiple cards would be mapped to a single list and multiple lists mapped to a single board. This builds associations are constructed in a hierarchical way making it quicker and more efficient to retrieve large volumes of data.
 
-  e. Identify entities which must be tracked by the app
+###### e. Identify entities which must be tracked by the app
 
 * Boards - They are a top-level representation of the projects, teams, or topics. Each of the boards contains multiple lists associated with the project.
 * Lists are used to categorize and organise the different tasks that could be given through cards. In the workflow these are often represented with a 'to do' or 'in progress' to denote the current stage of completion.
@@ -218,7 +216,7 @@ Data in MongoDB is organised into collections of documents that are stored as Js
 * Teams or organisations - a top level entity in the hierarchical structure for business class or enterprise users.
 * Notifications - tracks updates and changes that inform users about activity on the board.
 
-  f. Identify the relationships and associations between the entities you have identified in part (e)
+###### f. Identify the relationships and associations between the entities you have identified in part (e)
 
 Due to the hierarchical structure of most of the database the relationships within the data set can be obvious but there are a few that aren't.
 
@@ -227,11 +225,11 @@ Boards share a one-to-many relationship with the lists and the lists share a one
 Comments, attachments, and activity history are all related to the cards in a one-to-many relationship where one card can have many of each of these. Teams and organisations have a one-to-many relationship with the boards and finally notifications serve a many to many relationships with the user providing feedback on multiple boards and cards.
 
 
-  g. Design a schema using an Entity Relationship Diagram (ERD) appropriate for the database of this website (assuming a relational database model)
+ ###### g. Design a schema using an Entity Relationship Diagram (ERD) appropriate for the database of this website (assuming a relational database model)
   ---
 Note that this application does not use the relational database modelling but if it did, for brevity the relationship model would look like the below.
 
-![relationship model](./trello%20ERD.png)
+![relationship model](http://localhost:5500/trelloERD.png)
 
 
   ---
@@ -241,7 +239,7 @@ Note that this application does not use the relational database modelling but if
 
 
 
-resources
+Resources
 
 
   https://mariadb.com/resources/blog/acid-compliance-what-it-means-and-why-you-should-care/
@@ -254,6 +252,6 @@ resources
 
   https://github.com/trello
 
-  https://blog.trello.com/the-trello-tech-stack#:~:text=for%20AJAX%20polling.-,REDIS,all%20of%20them)%20are%20lost.
+  https://blog.trello.com/the-trello-tech-stack#:~:text=for%20AJAX%20polling.-,REDIS,all%20of%20them%20are%20lost.
 
   https://app.diagrams.net/
